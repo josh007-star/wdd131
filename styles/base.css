@@ -1,5 +1,4 @@
 
-```css
 :root {
     --primary: #17324d;
     --secondary: #245b78;
@@ -90,7 +89,7 @@ h1 {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     gap: 1.5rem;
-    align-items: stretch;
+    align-items: start;
 }
 
 .card {
@@ -113,12 +112,16 @@ h1 {
 
 .card h3 {
     margin: 1rem 1.25rem 0.4rem;
+    padding-bottom: 0.4rem;
     color: var(--secondary);
+    border-bottom: 1px solid #cbd5df;
 }
 
 .card p {
     margin: 1rem 1.25rem;
 }
+
+/* About Me */
 
 .about-content {
     display: grid;
@@ -139,19 +142,25 @@ h1 {
     border-radius: 6px;
 }
 
+/* Country Information */
+
 .country-content {
-    padding: 0.5rem 1rem 1rem;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: start;
+    gap: 1rem;
+    padding: 0.5rem 1.25rem 0;
 }
 
 .country-content figure {
-    margin: 0.5rem 0 1rem;
+    margin: 0.5rem 0;
     text-align: center;
 }
 
 .country-content img {
     display: block;
     width: 100%;
-    max-width: 280px;
+    max-width: 180px;
     height: auto;
     margin: 0 auto;
     border-radius: 6px;
@@ -163,51 +172,52 @@ h1 {
     font-size: 0.9rem;
 }
 
-#final-project {
-    margin-top: 1.5rem;
-    padding: 1rem 1.25rem;
-    background: var(--surface);
-    border: 1px solid #cbd5df;
-    border-radius: 10px;
-}
-
-#final-project h2 {
-    margin-top: 0;
-    color: var(--primary);
+.country-content p {
+    margin: 0.5rem 0 1rem;
 }
 
 /* Web Development Resources */
 
-#web-dev-resources {
-    margin-top: 1.5rem;
-    padding-bottom: 1rem;
+.resources-card {
+    min-height: 300px;
 }
 
-#web-dev-resources > p {
-    margin: 1rem 1.25rem;
+.resources-card > p {
+    margin: 1.2rem;
 }
 
-#web-dev-resources ul {
-    padding-left: 2.5rem;
-    margin: 1rem 1.25rem;
+.resources-card ul {
+    padding-left: 2rem;
+    margin: 1rem 1.2rem;
 }
 
-#web-dev-resources li {
+.resources-card li {
     margin-bottom: 0.8rem;
     line-height: 1.6;
 }
 
-#web-dev-resources a {
+.resources-card a {
     color: var(--secondary);
     font-weight: 700;
     text-decoration: none;
 }
 
-#web-dev-resources a:hover,
-#web-dev-resources a:focus-visible {
+.resources-card a:hover,
+.resources-card a:focus-visible {
     color: var(--primary);
     text-decoration: underline;
 }
+
+/* Final Project */
+
+.final-project {
+    margin: 1.5rem 0;
+    padding: 0.8rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Footer */
 
 footer {
     margin-top: 1rem;
@@ -226,7 +236,10 @@ footer p {
     font-size: 0.9rem;
 }
 
+/* Responsive Design */
+
 @media (max-width: 700px) {
+
     #course-title {
         font-size: 1.2rem;
     }
@@ -257,5 +270,12 @@ footer p {
         max-width: 100%;
         margin: 0 auto;
     }
+
+    .country-content {
+        grid-template-columns: 1fr;
+    }
+
+    .country-content img {
+        max-width: 240px;
+    }
 }
-```
