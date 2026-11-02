@@ -1,4 +1,5 @@
 
+```css
 :root {
     --primary: #17324d;
     --secondary: #245b78;
@@ -17,9 +18,6 @@ img {
     max-width: 100%;
     height: auto;
 }
-
-
-
 
 body {
     margin: 0;
@@ -135,8 +133,8 @@ h1 {
 }
 
 .about-content img {
-    width: 100%;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border-radius: 6px;
 }
@@ -176,6 +174,39 @@ h1 {
 #final-project h2 {
     margin-top: 0;
     color: var(--primary);
+}
+
+/* Web Development Resources */
+
+#web-dev-resources {
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+#web-dev-resources > p {
+    margin: 1rem 1.25rem;
+}
+
+#web-dev-resources ul {
+    padding-left: 2.5rem;
+    margin: 1rem 1.25rem;
+}
+
+#web-dev-resources li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+#web-dev-resources a {
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#web-dev-resources a:hover,
+#web-dev-resources a:focus-visible {
+    color: var(--primary);
+    text-decoration: underline;
 }
 
 footer {
@@ -227,3 +258,4 @@ footer p {
         margin: 0 auto;
     }
 }
+```
