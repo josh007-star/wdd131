@@ -1,6 +1,7 @@
 
 
 
+
 const temples = [
     {
         templeName: "Aba Nigeria Temple",
@@ -80,7 +81,7 @@ const pageTitle = document.querySelector("#page-title");
 function displayTemples(templeList) {
     templeContainer.replaceChildren();
 
-    templeList.forEach((temple) => {
+    templeList.forEach((temple, index) => {
         const card = document.createElement("article");
         card.classList.add("temple-card");
 
@@ -99,7 +100,8 @@ function displayTemples(templeList) {
         const image = document.createElement("img");
         image.src = temple.imageUrl;
         image.alt = `Exterior view of ${temple.templeName}`;
-        image.loading = "lazy";
+        image.loading = index === 0 ? "eager" : "lazy";
+        image.fetchPriority = index === 0 ? "high" : "auto";
         image.decoding = "async";
         image.width = 400;
         image.height = 250;
@@ -125,30 +127,30 @@ function filterTemples(filter) {
 
     switch (filter) {
         case "old":
-            filteredTemples = temples.filter((temple) => {
-                return Number(temple.dedicated.split(",")[0]) < 1900;
-            });
+            filteredTemples = temples.filter((temple) =>
+                Number(temple.dedicated.split(",")[0]) < 1900
+            );
             pageTitle.textContent = "Old Temples";
             break;
 
         case "new":
-            filteredTemples = temples.filter((temple) => {
-                return Number(temple.dedicated.split(",")[0]) > 2000;
-            });
+            filteredTemples = temples.filter((temple) =>
+                Number(temple.dedicated.split(",")[0]) > 2000
+            );
             pageTitle.textContent = "New Temples";
             break;
 
         case "large":
-            filteredTemples = temples.filter((temple) => {
-                return temple.area > 90000;
-            });
+            filteredTemples = temples.filter((temple) =>
+                temple.area > 90000
+            );
             pageTitle.textContent = "Large Temples";
             break;
 
         case "small":
-            filteredTemples = temples.filter((temple) => {
-                return temple.area < 10000;
-            });
+            filteredTemples = temples.filter((temple) =>
+                temple.area < 10000
+            );
             pageTitle.textContent = "Small Temples";
             break;
 
