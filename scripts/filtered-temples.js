@@ -1,4 +1,5 @@
 
+
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -76,9 +77,9 @@ const templeContainer = document.querySelector("#temple-container");
 const pageTitle = document.querySelector("#page-title");
 const navLinks = document.querySelectorAll(".navigation a");
 
-// Create a temple card
+// Create and display temple cards
 function displayTemples(templeList) {
-    templeContainer.innerHTML = "";
+    templeContainer.replaceChildren();
 
     templeList.forEach((temple) => {
         const card = document.createElement("article");
@@ -88,34 +89,39 @@ function displayTemples(templeList) {
         name.textContent = temple.templeName;
 
         const location = document.createElement("p");
-        location.innerHTML = `<strong>Location:</strong> ${temple.location}`;
+        const locationLabel = document.createElement("strong");
+        locationLabel.textContent = "Location: ";
+        location.append(locationLabel, temple.location);
 
         const dedication = document.createElement("p");
-        dedication.innerHTML = `<strong>Dedicated:</strong> ${temple.dedicated}`;
+        const dedicationLabel = document.createElement("strong");
+        dedicationLabel.textContent = "Dedicated: ";
+        dedication.append(dedicationLabel, temple.dedicated);
 
         const area = document.createElement("p");
-        area.innerHTML = `<strong>Area:</strong> ${temple.area.toLocaleString()} sq ft`;
+        const areaLabel = document.createElement("strong");
+        areaLabel.textContent = "Area: ";
+        area.append(
+            areaLabel,
+            `${temple.area.toLocaleString()} sq ft`
+        );
 
         const image = document.createElement("img");
         image.src = temple.imageUrl;
         image.alt = `${temple.templeName} Temple`;
         image.loading = "lazy";
+        image.decoding = "async";
         image.width = 400;
-        image.height = 250;
+        image.height = temple.templeName === "Payson Utah" ? 225 : 250;
 
-        card.appendChild(name);
-        card.appendChild(location);
-        card.appendChild(dedication);
-        card.appendChild(area);
-        card.appendChild(image);
-
+        card.append(name, location, dedication, area, image);
         templeContainer.appendChild(card);
     });
 }
 
-// Filter temples
+// Filter temples according to the selected category
 function filterTemples(filter) {
-    let filteredTemples = temples;
+    let filteredTemples = [];
 
     switch (filter) {
         case "old":
@@ -135,12 +141,16 @@ function filterTemples(filter) {
             break;
 
         case "large":
-            filteredTemples = temples.filter((temple) => temple.area > 90000);
+            filteredTemples = temples.filter(
+                (temple) => temple.area > 90000
+            );
             pageTitle.textContent = "Large Temples";
             break;
 
         case "small":
-            filteredTemples = temples.filter((temple) => temple.area < 10000);
+            filteredTemples = temples.filter(
+                (temple) => temple.area < 10000
+            );
             pageTitle.textContent = "Small Temples";
             break;
 
@@ -152,7 +162,7 @@ function filterTemples(filter) {
     displayTemples(filteredTemples);
 }
 
-// Navigation click events
+// Navigation event listeners
 navLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
         event.preventDefault();
@@ -163,14 +173,16 @@ navLinks.forEach((link) => {
 
         link.classList.add("active");
 
-        const filter = link.dataset.filter;
-        filterTemples(filter);
+        filterTemples(link.dataset.filter);
     });
 });
 
-// Display all temples when page loads
+// Display all temples when the page loads
 displayTemples(temples);
 
-// Footer year and last modified date
-document.querySelector("#currentyear").textContent = new Date().getFullYear();
-document.querySelector("#lastModified").textContent = `Last modified: ${document.lastModified}`;
+// Update footer information
+document.querySelector("#currentyear").textContent =
+    new Date().getFullYear();
+
+document.querySelector("#lastModified").textContent =
+    `Last modified: ${document.lastModified}`;
