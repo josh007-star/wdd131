@@ -1,5 +1,6 @@
 
 
+
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -55,21 +56,21 @@ const temples = [
         location: "Lagos, Nigeria",
         dedicated: "2000, January, 15",
         area: 10700,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/lagos-nigeria-temple/lagos-nigeria-temple-400x250.jpg"
+        imageUrl: "https://news-africa.churchofjesuschrist.org/media/960x720/High-Res-Rendering---Lagos-Nigeria.png"
     },
     {
         templeName: "Rome Italy",
         location: "Rome, Italy",
         dedicated: "2019, March, 10",
         area: 41000,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/rome-italy-temple/rome-italy-temple-400x250.jpg"
+        imageUrl: "https://www.churchofjesuschrist.org/imgs/bf73f132564c2d84658d4cd8d4a3c9fab184dd22/full/400,/0/default"
     },
     {
         templeName: "Freiberg Germany",
         location: "Freiberg, Germany",
         dedicated: "1985, June, 29",
         area: 21485,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/freiberg-germany-temple/freiberg-germany-temple-400x250.jpg"
+        imageUrl: "https://www.churchofjesuschrist.org/imgs/36e4c4f367cfab006feb507790c6d9e94c5d146c/full/400,/0/default"
     }
 ];
 
