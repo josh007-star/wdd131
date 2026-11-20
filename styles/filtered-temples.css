@@ -15,7 +15,7 @@
 
 body {
     margin: 0;
-    font-family: "Roboto", Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -28,7 +28,7 @@ header {
 
 .site-name {
     text-align: center;
-    font-family: "Montserrat", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
     font-weight: 700;
     margin: 0 0 1rem;
@@ -71,7 +71,7 @@ main {
 main h1,
 main h2 {
     text-align: center;
-    font-family: "Montserrat", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 main h1 {
@@ -97,7 +97,7 @@ main h2 {
 }
 
 .temple-card h3 {
-    font-family: "Montserrat", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: var(--primary-color);
     margin-top: 0;
 }
