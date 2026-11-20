@@ -2,86 +2,88 @@
 
 
 
+
 const temples = [
     {
-        templeName: "Aba Nigeria Temple",
+        templeName: "Aba Nigeria",
         location: "Aba, Nigeria",
-        dedicated: "2005, August 7",
+        dedicated: "2005, August, 7",
         area: 11500,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/aba-nigeria-temple/aba-nigeria-temple-400x250.jpg"
+        imageUrl: "images/temple-2.webp"
     },
     {
-        templeName: "Manti Utah Temple",
+        templeName: "Manti Utah",
         location: "Manti, Utah, United States",
-        dedicated: "1888, May 21",
+        dedicated: "1888, May, 21",
         area: 74792,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/manti-utah-temple/manti-utah-temple-400x250.jpg"
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
     },
     {
-        templeName: "Payson Utah Temple",
+        templeName: "Payson Utah",
         location: "Payson, Utah, United States",
-        dedicated: "2015, June 7",
+        dedicated: "2015, June, 7",
         area: 96630,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/payson-utah-temple/payson-utah-temple-400x250.jpg"
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
     },
     {
-        templeName: "Yigo Guam Temple",
+        templeName: "Yigo Guam",
         location: "Yigo, Guam",
-        dedicated: "2020, May 2",
+        dedicated: "2020, May, 2",
         area: 6861,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/yigo-guam-temple/yigo-guam-temple-400x250.jpg"
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/yigo-guam/400x250/yigo_guam_temple_2.jpg"
     },
     {
-        templeName: "Washington D.C. Temple",
+        templeName: "Washington D.C.",
         location: "Kensington, Maryland, United States",
-        dedicated: "1974, November 19",
+        dedicated: "1974, November, 19",
         area: 156558,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/washington-dc-temple/washington-dc-temple-400x250.jpg"
+        imageUrl: "images/temple-7.webp"
     },
     {
-        templeName: "Lima Peru Temple",
-        location: "Lima, Peru",
-        dedicated: "1986, January 10",
+        templeName: "Lima Perú",
+        location: "Lima, Perú",
+        dedicated: "1986, January, 10",
         area: 9600,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/lima-peru-temple/lima-peru-temple-400x250.jpg"
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
     },
     {
-        templeName: "Mexico City Mexico Temple",
+        templeName: "Mexico City Mexico",
         location: "Mexico City, Mexico",
-        dedicated: "1983, December 2",
+        dedicated: "1983, December, 2",
         area: 116642,
-        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/mexico-city-mexico-temple/mexico-city-mexico-temple-400x250.jpg"
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
     },
     {
-        templeName: "Lagos Nigeria Temple",
-        location: "Lagos, Nigeria",
-        dedicated: "2000, January 15",
-        area: 10700,
-        imageUrl: "images/lagos-nigeria.jpg"
+        templeName: "Accra Ghana",
+        location: "Accra, Ghana",
+        dedicated: "2004, January, 11",
+        area: 17500,
+        imageUrl: "images/temple-1.webp"
     },
     {
-        templeName: "Rome Italy Temple",
+        templeName: "Rome Italy",
         location: "Rome, Italy",
-        dedicated: "2019, March 10",
-        area: 41000,
-        imageUrl: "images/rome-italy.jpg"
+        dedicated: "2019, March, 10",
+        area: 41010,
+        imageUrl: "images/temple-4.webp"
     },
     {
-        templeName: "Freiberg Germany Temple",
+        templeName: "Freiberg Germany",
         location: "Freiberg, Germany",
-        dedicated: "1985, June 29",
-        area: 21485,
-        imageUrl: "images/freiberg-germany.jpg"
+        dedicated: "1985, June, 29",
+        area: 21500,
+        imageUrl: "images/temple-9.webp"
     }
 ];
 
 const templeContainer = document.querySelector("#temple-container");
 const pageTitle = document.querySelector("#page-title");
 
+// Display temple cards
 function displayTemples(templeList) {
-    templeContainer.replaceChildren();
+    templeContainer.innerHTML = "";
 
-    templeList.forEach((temple, index) => {
+    templeList.forEach((temple) => {
         const card = document.createElement("article");
         card.classList.add("temple-card");
 
@@ -99,18 +101,10 @@ function displayTemples(templeList) {
 
         const image = document.createElement("img");
         image.src = temple.imageUrl;
-        image.alt = `Exterior view of ${temple.templeName}`;
-        image.loading = index === 0 ? "eager" : "lazy";
-        image.fetchPriority = index === 0 ? "high" : "auto";
-        image.decoding = "async";
+        image.alt = `${temple.templeName} temple`;
+        image.loading = "lazy";
         image.width = 400;
         image.height = 250;
-
-        image.addEventListener("error", () => {
-            image.alt = `Image unavailable for ${temple.templeName}`;
-            image.removeAttribute("src");
-            image.classList.add("image-unavailable");
-        });
 
         card.appendChild(name);
         card.appendChild(location);
@@ -122,60 +116,52 @@ function displayTemples(templeList) {
     });
 }
 
+// Filter temples
 function filterTemples(filter) {
     let filteredTemples = temples;
 
-    switch (filter) {
-        case "old":
-            filteredTemples = temples.filter((temple) =>
-                Number(temple.dedicated.split(",")[0]) < 1900
-            );
-            pageTitle.textContent = "Old Temples";
-            break;
-
-        case "new":
-            filteredTemples = temples.filter((temple) =>
-                Number(temple.dedicated.split(",")[0]) > 2000
-            );
-            pageTitle.textContent = "New Temples";
-            break;
-
-        case "large":
-            filteredTemples = temples.filter((temple) =>
-                temple.area > 90000
-            );
-            pageTitle.textContent = "Large Temples";
-            break;
-
-        case "small":
-            filteredTemples = temples.filter((temple) =>
-                temple.area < 10000
-            );
-            pageTitle.textContent = "Small Temples";
-            break;
-
-        default:
-            pageTitle.textContent = "Home";
-            break;
+    if (filter === "old") {
+        filteredTemples = temples.filter((temple) =>
+            Number(temple.dedicated.slice(0, 4)) < 1900
+        );
+        pageTitle.textContent = "Old Temples";
+    } else if (filter === "new") {
+        filteredTemples = temples.filter((temple) =>
+            Number(temple.dedicated.slice(0, 4)) > 2000
+        );
+        pageTitle.textContent = "New Temples";
+    } else if (filter === "large") {
+        filteredTemples = temples.filter((temple) => temple.area > 90000);
+        pageTitle.textContent = "Large Temples";
+    } else if (filter === "small") {
+        filteredTemples = temples.filter((temple) => temple.area < 10000);
+        pageTitle.textContent = "Small Temples";
+    } else {
+        pageTitle.textContent = "Home";
     }
 
     displayTemples(filteredTemples);
 }
 
-document.querySelectorAll(".navigation a").forEach((link) => {
+// Navigation menu events
+const navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
         event.preventDefault();
 
-        document.querySelector(".navigation a.active")?.classList.remove("active");
+        navLinks.forEach((navLink) => navLink.classList.remove("active"));
         link.classList.add("active");
 
         filterTemples(link.dataset.filter);
     });
 });
 
+// Footer date and year
 document.querySelector("#currentyear").textContent = new Date().getFullYear();
 
 document.querySelector("#lastModified").textContent =
     `Last modified: ${document.lastModified}`;
 
+// Display all temples when page loads
 displayTemples(temples);
