@@ -1,0 +1,141 @@
+
+:root {
+    --primary-color: #17324d;
+    --secondary-color: #245b78;
+    --accent-color: #f2c078;
+    --background-color: #f2f5f8;
+    --surface-color: #ffffff;
+    --text-color: #202a35;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+}
+
+header h1 {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    margin: 0 0 1rem;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus {
+    background-color: var(--secondary-color);
+    outline: 2px solid var(--accent-color);
+}
+
+.navigation a.active {
+    background-color: var(--accent-color);
+    color: #202a35;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+main h2 {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    margin: 1rem 0 1.5rem;
+}
+
+.temple-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.temple-card {
+    background-color: var(--surface-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.temple-card h3 {
+    font-family: "Montserrat", sans-serif;
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.temple-card p {
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+.temple-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    margin: 1rem auto 0;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0.5rem;
+}
+
+@media screen and (min-width: 600px) {
+    .temple-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .temple-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    header {
+        padding: 1.5rem;
+    }
+
+    .navigation {
+        justify-content: space-evenly;
+    }
+}
